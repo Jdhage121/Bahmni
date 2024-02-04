@@ -11,13 +11,14 @@ import org.junit.runner.RunWith;
 
         features = {"src/test/resources/featureFiles"},
         glue = {"stepDefinitions","CommonActions"},
+        dryRun = true,
         plugin = {"pretty",
 
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 
                 "timeline:test-output-thread/"
 
-        },tags = "@RegistrationTest"
+        },tags = "@OT"
 
 
 )

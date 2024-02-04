@@ -27,7 +27,7 @@ public class DriverManager {
     // These changes done from chandrika feature branch
     // one more chamnge from Chandrika's branch
 
-public static ThreadLocal<WebDriver>   container=new ThreadLocal<WebDriver>();
+public static ThreadLocal<WebDriver>  container=new ThreadLocal<WebDriver>();
 
 
 
@@ -35,12 +35,6 @@ public static synchronized WebDriver getDriver(){
 
     return container.get();
 }
-
-
-
-
-
-
 
 public WebDriver initialiseBrowser(String browserType) throws MalformedURLException {
 
@@ -68,11 +62,9 @@ public WebDriver initialiseBrowser(String browserType) throws MalformedURLExcept
                 break;
 
             case "Remote":
-
                 MutableCapabilities capabilities = new MutableCapabilities();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("incognito");  // ChromeOptions for starting chrome in incognito mode
-
                 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
                 capabilities.setCapability("browserName", "Safari");
@@ -85,10 +77,6 @@ public WebDriver initialiseBrowser(String browserType) throws MalformedURLExcept
                 String accessKey = "LXtj4dZ84jzfXy9QKvY8";
                 String BROWSERURL = "https://"+username+":"+accessKey+"@hub-cloud.browserstack.com/wd/hub";
                 container.set(new RemoteWebDriver(new URL(BROWSERURL), capabilities));
-
-
-
-
                 break;
 
             default:

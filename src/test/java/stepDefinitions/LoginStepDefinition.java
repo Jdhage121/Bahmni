@@ -4,6 +4,7 @@ import appPages.LoginPage;
 import drivers.DriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.testng.Assert;
 
 public class LoginStepDefinition {
 
@@ -21,11 +22,10 @@ public class LoginStepDefinition {
     @Given("user enters the login credentials and click on login button")
     public void user_enters_the_login_credentials_and_click_on_login_button() throws InterruptedException {
 
-        loginPage.loginToBahmniApp("superman","Admin123");
+        loginPage.loginToBahmniApp(Constants.userName,Constants.passWord);
     }
     @Then("user should be able to login to the app")
     public void user_should_be_able_to_login_to_the_app() {
-
 
     }
 
