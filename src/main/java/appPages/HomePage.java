@@ -16,11 +16,16 @@ public class HomePage {
 
 
     private By registrationButton = By.id("bahmni.registration");
-
+    private By AdminButton        = By.id("bahmni.admin");
     public void navigateToregistrationScreen() throws InterruptedException {
 
         driver.findElement(registrationButton).click();
         Thread.sleep(3000);
+    }
+    
+    public void navigateToAdminScreen() throws InterruptedException {
+    	 driver.findElement(AdminButton).click();
+         Thread.sleep(3000);
     }
 
 
