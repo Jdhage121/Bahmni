@@ -14,9 +14,11 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Driver;
+import java.time.Duration;
 import java.util.HashMap;
 
-public class DriverManager {
+public class DriverManager
+{
 
 // first removed setter method
 //  made the getDriver method as synchronized
@@ -96,6 +98,7 @@ public WebDriver initialiseBrowser(String browserType) throws MalformedURLExcept
                 break;
 
     }
+    getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     return getDriver();
 
 }
