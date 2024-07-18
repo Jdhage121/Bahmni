@@ -17,32 +17,15 @@ import java.sql.Driver;
 import java.util.HashMap;
 
 public class DriverManager {
+    public static ThreadLocal<WebDriver> container = new ThreadLocal<WebDriver>();
 
-// first removed setter method
-//  made the getDriver method as synchronized
-    // lastly we made the init browser return type from void to WebDriver
+    public static synchronized WebDriver getDriver() {
 
-
-
-    // These changes done from chandrika feature branch
-    // one more chamnge from Chandrika's branch
-
-public static ThreadLocal<WebDriver>   container=new ThreadLocal<WebDriver>();
+        return container.get();
+    }
 
 
-
-public static synchronized WebDriver getDriver(){
-
-    return container.get();
-}
-
-
-
-
-
-
-
-public WebDriver initialiseBrowser(String browserType) throws MalformedURLException {
+    public WebDriver initialiseBrowser(String browserType) throws MalformedURLException {
 
 
         switch (browserType) {
@@ -81,12 +64,10 @@ public WebDriver initialiseBrowser(String browserType) throws MalformedURLExcept
                 browserstackOptions.put("os", "OS X");
                 browserstackOptions.put("osVersion", "Sonoma");
                 capabilities.setCapability("bstack:options", browserstackOptions);
-                String username ="prashanthsamudra_9uc23D";
+                String username = "prashanthsamudra_9uc23D";
                 String accessKey = "LXtj4dZ84jzfXy9QKvY8";
-                String BROWSERURL = "https://"+username+":"+accessKey+"@hub-cloud.browserstack.com/wd/hub";
+                String BROWSERURL = "https://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
                 container.set(new RemoteWebDriver(new URL(BROWSERURL), capabilities));
-
-
 
 
                 break;
@@ -95,12 +76,10 @@ public WebDriver initialiseBrowser(String browserType) throws MalformedURLExcept
                 System.out.println("Please provide the browserType value from Chrome/Firefox/Safari/Edge");
                 break;
 
+        }
+        return getDriver();
+
     }
-    return getDriver();
-
-}
-
-
 
 
 }
