@@ -20,7 +20,7 @@ public class RegistrationStepDefinition {
     public void user_click_on_registration_button_on_home_screen() throws InterruptedException {
 
 
-        homepage.navigateToregistrationScreen();
+//        homepage.navigateToregistrationScreen();
     }
     @Then("user clicks on create new button")
     public void user_clicks_on_create_new_button() throws InterruptedException {

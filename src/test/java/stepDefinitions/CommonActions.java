@@ -41,7 +41,7 @@ public class CommonActions {
     @After
     public void afterEveryScenario(){
         if(driver!=null) {
-            driver.close();
+            driver.quit();
         }
 
     }

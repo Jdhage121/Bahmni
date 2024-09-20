@@ -37,7 +37,7 @@ public class LoginPage extends BaseAction {
         driver.findElement(buttonLogin).click();
         Select select=new Select(driver.findElement(selectLocation));
         select.selectByVisibleText("General Ward");
-        driver.findElement(By.xpath("//button[text()='Submit Location']")).click();
+        driver.findElement(By.cssSelector("button.confirm")).click();
         Thread.sleep(5000);
     }
 
