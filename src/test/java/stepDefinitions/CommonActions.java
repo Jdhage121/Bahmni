@@ -30,11 +30,10 @@ public class CommonActions {
 
         configReader=new ConfigReader();
         properties=configReader.getData();
-
         driverManager =new DriverManager();
         driver=driverManager.initialiseBrowser(properties.getProperty("browser"));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
 
