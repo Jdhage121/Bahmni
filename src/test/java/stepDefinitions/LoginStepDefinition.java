@@ -12,8 +12,8 @@ public class LoginStepDefinition {
 
     @Given("user launches the application")
     public void user_launches_the_application() throws InterruptedException {
-
-        DriverManager.getDriver().get("https://docker.standard.mybahmni.in/bahmni/home/index.html#/login");
+        DriverManager.getDriver().get("https://docker.standard.mybahmni.in/bahmni/home/index.html#/dashboard");
+  //      DriverManager.getDriver().get("https://docker.standard.mybahmni.in/bahmni/home/index.html#/login");
 //        DriverManager.getDriver().get("https://demo-lite.mybahmni.in/bahmni/home/index.html#/login");
         Thread.sleep(3000);
     }

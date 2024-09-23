@@ -61,4 +61,7 @@ public class HomePage extends BaseAction {
     }
 
 
+    public void navigateToregistrationScreen() {
+
+    }
 }

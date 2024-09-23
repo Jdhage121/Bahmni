@@ -7,14 +7,17 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
+import java.time.Duration;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.Set;
+
+
+//import java.time.Duration;
 
 public class BaseAction {
     public WebDriver driver = DriverManager.getDriver();
@@ -29,9 +32,11 @@ public class BaseAction {
 
     public void fluentWait(WebElement element) {
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
-        wait.withTimeout(Duration.ofSeconds(100))  // threshold is 100 seconds
-                .pollingEvery(Duration.ofSeconds(2))   // polling every 2 seconds
-                .ignoring(NoSuchElementException.class);
+//wait.withTimeout(Duration.ofSeconds(100))
+      //  .pollingEvery(Duration.ofSeconds(2))
+       // wait.withTimeout(ofSeconds(100))  // threshold is 100 seconds
+          //      .pollingEvery(ofSeconds(2))   // polling every 2 seconds
+               // .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -41,8 +46,8 @@ public class BaseAction {
     }
 
     public void waitUntilElementIsDisplayed(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        wait.until(ExpectedConditions.visibilityOf(element));
+       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+      //  wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public void verifyIsElementDisplayed(WebElement element) {
