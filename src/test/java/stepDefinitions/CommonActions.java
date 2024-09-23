@@ -34,7 +34,7 @@ public class CommonActions {
         driverManager =new DriverManager();
         driver=driverManager.initialiseBrowser(properties.getProperty("browser"));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
 

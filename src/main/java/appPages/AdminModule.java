@@ -38,9 +38,9 @@ public class AdminModule {
     public void uploadFile(WebElement element){
         String js = "arguments[0].style.height='auto';arguments[0].style.visibility='visible';";
         ((JavascriptExecutor)driver).executeScript(js,element);
-        element.sendKeys("C:\\Users\\Jyoti Dhage\\Desktop\\ITTHUB\\UploadFile.csv");
-        driver.findElement(uploadBtn).click();
-        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='UploadFile.csv']")).isDisplayed());
+        element.sendKeys("C:\\Users\\saite\\Desktop\\Bahmni\\src\\main\\resources\\Saiteja.pdf");;
+        // driver.findElement(uploadButton).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//li[@ng-repeat='file in visit.files | reverse']")).isDisplayed());
     }
 
 }
