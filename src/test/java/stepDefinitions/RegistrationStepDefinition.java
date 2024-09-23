@@ -1,26 +1,32 @@
 package stepDefinitions;
 
 import appPages.HomePage;
+import appPages.LoginPage;
 import appPages.RegistrationPage;
 import drivers.DriverManager;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import java.util.List;
 
 public class RegistrationStepDefinition {
 
 
-   HomePage homepage =new HomePage(DriverManager.getDriver());
+   //HomePage homepage =new HomePage(DriverManager.getDriver());
+    LoginPage  Loginpage = new LoginPage(DriverManager.getDriver());
    RegistrationPage registrationPage = new RegistrationPage(DriverManager.getDriver());
 
-
-
+    @Given("user launches the application")
+    public void userlaunchestheapplication() throws InterruptedException {
+        DriverManager.getDriver().get("https://docker.standard.mybahmni.in/bahmni/home/index.html#/login");
+        Thread.sleep(3000);
+        Loginpage.loginToBahmniApp("Superman","Admin123");
+    }
     @Then("user click on registration button on home screen")
     public void user_click_on_registration_button_on_home_screen() throws InterruptedException {
 
 
-        homepage.navigateToregistrationScreen();
+        //homepage.navigateToregistrationScreen();
     }
     @Then("user clicks on create new button")
     public void user_clicks_on_create_new_button() throws InterruptedException {

@@ -8,23 +8,23 @@ import org.testng.Assert;
 
 public class AdminStepDefination {
 
-    AdminModule adminModule = new AdminModule(DriverManager.getDriver());
+    AdminModule admin = new AdminModule(DriverManager.getDriver());
     @Then("user click on the Admin module from the home page")
     public void user_click_on_the_admin_module_from_the_home_page() {
-        adminModule.clickOnAdminModule();
+        admin.clickOnAdminModule();
     }
     @Then("user is on the admin module page")
     public void user_is_on_the_admin_module_page() {
-        Assert.assertTrue(adminModule.csvUpload().isDisplayed());
+        Assert.assertTrue(admin.csvUpload().isDisplayed());
     }
     @Then("user click on the {string}")
     public void user_click_on_the(String tabName) {
-        adminModule.getElemntByLinkText(tabName).click();
+        admin.getElemntByLinkText(tabName).click();
     }
 
     @Then("user select file type as {string}")
     public void user_select_file_type(String fileType){
-        adminModule.selectFile(fileType);
+        admin.selectFile(fileType);
     }
 
     @Then(("user upload the csv file"))
@@ -34,7 +34,7 @@ public class AdminStepDefination {
         }catch (Exception e){
 
         }
-        adminModule.uploadFile(DriverManager.getDriver().findElement(By.xpath("//input[@type='file']")));
+        admin.uploadFile(DriverManager.getDriver().findElement(By.xpath("//input[@type='file']")));
     }
 
 }

@@ -15,7 +15,8 @@ import org.testng.annotations.DataProvider;
 
                 "timeline:test-output-thread/"
 
-        }
+        } ,tags = "@RegistrationTest"
+
 
 
 )

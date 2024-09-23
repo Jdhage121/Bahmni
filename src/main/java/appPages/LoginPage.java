@@ -11,9 +11,9 @@ public class LoginPage extends BaseAction {
     public WebDriver driver;
 
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
 
-        this.driver=driver;
+        this.driver = driver;
     }
 
 
@@ -22,26 +22,22 @@ public class LoginPage extends BaseAction {
     // top perform the actions on the locators
 
 
-
-    private By textUserName=By.id("username");
-    private By textPassword=By.id("password");
-    private By selectLocation=By.id("location");
-    private By buttonLogin=By.xpath("//button[@type='submit' and text()='Login']");
-
-
+    private By textUserName = By.id("username");
+    private By textPassword = By.id("password");
+    private By selectLocation = By.id("location");
+    private By buttonLogin = By.xpath("//button[@type='submit' and text()='Login']");
 
 
     public void loginToBahmniApp(String username, String password) throws InterruptedException {
         driver.findElement(textUserName).sendKeys(username);
         driver.findElement(textPassword).sendKeys(password);
         driver.findElement(buttonLogin).click();
-        Select select=new Select(driver.findElement(selectLocation));
+        Select select = new Select(driver.findElement(selectLocation));
         select.selectByVisibleText("General Ward");
-        driver.findElement(By.xpath("//button[text()='Submit Location']")).click();
+        driver.findElement(By.xpath("//button[text()='Continue']")).click();
         Thread.sleep(5000);
     }
-
-
-
-
 }
+
+
+
